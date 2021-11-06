@@ -4,11 +4,12 @@ import './index.css';
 import AppRouter from './AppRouter';
 import reportWebVitals from './reportWebVitals';
 import FindBands from './pages/FindBands';
+import Register from './pages/Register';
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <AppRouter /> */}
-    <FindBands />
+    <Register/>
   </React.StrictMode>,
   document.getElementById('root')
 );

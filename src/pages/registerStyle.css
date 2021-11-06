@@ -1,0 +1,26 @@
+#formContainer {
+    margin: 5px;
+    border: 1px solid black;
+}
+#parent {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+#registerBanner {
+    margin: 5px;
+    border: 1px solid black;
+    height: 50px;
+    width: 90%;
+    background-color: saddlebrown;
+}
+Form.Group {
+    padding: 5px;
+}
+div Form {
+    text-align: center;
+    margin: 5px;
+}
+#submitButton {
+    margin-top: 10px;
+}
