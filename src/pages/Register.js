@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './registerStyle.css'
+import './registerStyle.css';
+import $ from "jquery"
 export default function Register(){
     const [bandName, setBandName] = useState("");
     const [bCity, setCity] = useState("");
@@ -20,23 +21,21 @@ export default function Register(){
     function submitUserInfo(){
         var URL = "https://protected-gorge-89882.herokuapp.com/addBand";
         var params = {
-          'bandName': bandName,
-          'city': bCity,
-          'state': bState,
-          'youTubeVideos': youtubeLinkArray
+          bandName: 'tigerhacks',
+          city: 'test',
+          state: 'test',
+          youtubeVideos: youtubeLinkArray,
+          username: 'joel',
+          bandDescription: 'joel is sick',
+          genre: 'hardcore ;)'
         };
-        var request = new XMLHttpRequest;
-        request.open('POST',URL,true);
-        request.send(params);
-        request.onload = function(){
-            if(request.status == 200){
-              console.log(request.response);
-             return true;
-            } else {
-              console.log(request);
-              return false;
-            } 
-        };
+        alert("t");
+        $.ajax ({
+            type: "POST",
+            url: URL,
+            data: params,
+            success: alert("success"),
+        });
     }
     return (
         <div id='parent'>
@@ -94,7 +93,17 @@ export default function Register(){
                 onChange={(e) => setPasswordConfirm(e.target.value)}
                 />
             </Form.Group>
-            <Button id="submitButton" block size="lg" type="submit" disabled={!checkIfZero()}>Register
+            <Form.Group size="lg" id = "youtubeLinks">
+                <Form.Label>Add  Youtube Links
+                </Form.Label>
+                <Form.Control
+                autoFocus
+                type="text"
+                value={youtubeLinkArray}
+                onChange={(e) => setYoutubeLinkArray(e.target.value)}
+                />
+            </Form.Group>
+            <Button id="submitButton" block-size="lg" type="submit" disabled={!checkIfZero()}>Register
             </Button>
         </Form>
         </div>
